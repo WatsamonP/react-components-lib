@@ -3,7 +3,8 @@ import React from 'react';
 // storybook
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
-import { text, object, boolean } from '@storybook/addon-knobs/react';
+import { text, object, boolean, select } from '@storybook/addon-knobs/react';
+import { LANGUAGE_LIST } from './utils/KnobSelectList'
 
 // component
 import DatePicker from '../src/components/base/DatePicker'
@@ -69,7 +70,7 @@ class DatePickerSimpleUse extends React.Component {
 
         <DatePicker
           placeholder={text("PlaceHolder", 'วัน/เดือน/ปี')}
-          currentLanguage='th'
+          currentLanguage={select('currentLanguage', LANGUAGE_LIST, 'th')}
           onClick={this.handleClick}
           value={this.state.mySelect}
           minDate={new Date()}

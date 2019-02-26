@@ -51,9 +51,16 @@ const App = () => {
 }
 ```
 
+<hr>
+
+## Example
 
 ![Text](https://github.com/WatsamonP/react-components-lib/blob/master/stories/assets/images/config_Styled.png?raw=true)
 
+<hr>
+
 ![Dropdown](https://github.com/WatsamonP/react-components-lib/blob/master/stories/assets/images/config_styleConfig.png?raw=true)
+
+<hr>
 
 ![Radio](https://github.com/WatsamonP/react-components-lib/blob/master/stories/assets/images/config_theme.png?raw=true)
