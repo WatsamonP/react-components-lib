@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getYear, getMonth, yearsRange, thaiMonths } from '../../../utils/time'
+import { getYear, getMonth, yearsRange, thaiMonths, months } from '../../../utils/time'
 import { Label1 } from '../../Typography/Typography'
 
 const HeaderWrapper = styled.div`
@@ -43,6 +43,7 @@ const DatePickerHeader = ({
   increaseMonth,
   prevMonthButtonDisabled,
   nextMonthButtonDisabled,
+  currentLanguage,
   theme
 }) => {
   const handleChangeYear = (e) => {
@@ -55,6 +56,14 @@ const DatePickerHeader = ({
     changeMonth(month)
   }
 
+  const getTitle = (date) => {
+    return currentLanguage === 'th' ?
+      <React.Fragment>{thaiMonths[getMonth(date)]} {getYear(date) + 543}</React.Fragment>
+      : <React.Fragment>{months[getMonth(date)]} {getYear(date)}</React.Fragment>
+  }
+  const displayMonths = currentLanguage === 'th' ? thaiMonths : months;
+  const displayYears = (option) => currentLanguage === 'th' ? (option + 543) : (option);
+
   return (
     <HeaderWrapper>
       <ButtonWrapper id="decrease-month" onClick={decreaseMonth} disabled={prevMonthButtonDisabled} theme={theme}>
@@ -62,7 +71,7 @@ const DatePickerHeader = ({
       </ButtonWrapper>
       <TitleWrapper>
         <DateTitle theme={theme}>
-          {thaiMonths[getMonth(date)]} {getYear(date) + 543}
+          {getTitle(date)}
         </DateTitle>
         <DropdownWrapper>
           <select
@@ -71,7 +80,7 @@ const DatePickerHeader = ({
             onChange={handleChangeMonth}
             style={{ marginRight: '4px' }}
           >
-            {thaiMonths.map((option, index) => (
+            {displayMonths.map((option, index) => (
               <option key={option} value={index}>
                 {option}
               </option>
@@ -81,7 +90,7 @@ const DatePickerHeader = ({
           <select id="select-year" value={getYear(date)} onChange={handleChangeYear}>
             {yearsRange(date).map(option => (
               <option key={option} value={option}>
-                {option + 543}
+                {displayYears(option)}
               </option>
             ))}
           </select>

@@ -136,9 +136,10 @@ class DatePickerComponent extends React.PureComponent {
       required,
       disabled = false,
       placeholder = "วว/ดด/ปปปป",
+      currentLanguage = 'th'
     } = this.props
 
-    const customHeader = props => <DatePickerHeader theme={this.props.theme} {...props} />
+    const customHeader = props => <DatePickerHeader theme={this.props.theme} currentLanguage={currentLanguage} {...props} />
     return (
       <DatePickerWrapper className={`${this.props.className} input-datepicker`}>
         <IconWrapper onClick={this.handlePopOver} theme={this.props.theme}>
@@ -149,7 +150,7 @@ class DatePickerComponent extends React.PureComponent {
           autoComplete="off"
           placeholder={placeholder}
           onClick={this.handlePopOver}
-          value={value && buddhistYear('th', value)}
+          value={value && buddhistYear(currentLanguage, value)}
           testId={`calendar-${testId.testSectionId}-${testId.testId}`}
           readOnly
           disabled={disabled}
