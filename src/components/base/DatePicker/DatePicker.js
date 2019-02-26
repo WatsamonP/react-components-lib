@@ -9,6 +9,7 @@ import ClearIcon from './ClearIconSvg'
 import { buddhistYear, getMinDate, getMaxDate, getYear, getMonth, getDate, getNowDate, getTimestamp } from '../../../utils/time'
 import DatePickerStyle from '../../../Style/DatePickerStyle'
 import DatePickerHeader from './DatePickerHeader'
+import PropTypes from 'prop-types'
 
 const DatePickerWrapper = styled.div`
   position: relative;
@@ -17,17 +18,17 @@ const DatePickerWrapper = styled.div`
 `
 
 const DatePickerContainer = styled.div`
-  ${DatePickerStyle};
   position: absolute;
   z-index: 250;
   width: 100%;
+  ${props => props.theme && props.theme.datePickerStyle ? props.theme.datePickerStyle : DatePickerStyle}
 `
 
 const IconWrapper = styled.i`
   position: absolute;
   padding: 15px 25px;
   line-height: 14px;
-  ${props => props.theme && props.theme.icon ? props.theme.icon : ''}
+  ${props => props.theme && props.theme.iconStyle ? props.theme.iconStyle : ''}
 `
 
 const ClearIconWrapper = styled.i`
@@ -35,15 +36,15 @@ const ClearIconWrapper = styled.i`
   padding: 17px 20px;
   line-height: 16px;
   right: 1px;
-  ${props => props.theme && props.theme.clearIcon ? props.theme.clearIcon : ''};
+  ${props => props.theme && props.theme.clearIconStyle ? props.theme.clearIconStyle : ''};
 `
 
 const InputWrapper = styled.input`
-  ${props => props.theme && props.theme.textInput ? props.theme.textInput : InputStyle};
   padding-left: 70px;
   cursor: default;
   outline: none;
   caret-color: transparent;
+  ${props => props.theme && props.theme.textInput ? props.theme.textInput : InputStyle};
 `
 
 export const getElementOffset = (el) => {
@@ -138,7 +139,6 @@ class DatePickerComponent extends React.PureComponent {
     } = this.props
 
     const customHeader = props => <DatePickerHeader theme={this.props.theme} {...props} />
-
     return (
       <DatePickerWrapper className={`${this.props.className} input-datepicker`}>
         <IconWrapper onClick={this.handlePopOver} theme={this.props.theme}>
@@ -150,7 +150,7 @@ class DatePickerComponent extends React.PureComponent {
           placeholder={placeholder}
           onClick={this.handlePopOver}
           value={value && buddhistYear('th', value)}
-          id={`calendar-${testId.testSectionId}-${testId.testId}`}
+          testId={`calendar-${testId.testSectionId}-${testId.testId}`}
           readOnly
           disabled={disabled}
           theme={this.props.theme}
@@ -163,7 +163,7 @@ class DatePickerComponent extends React.PureComponent {
             </ClearIconWrapper>
           )}
 
-        <DatePickerContainer>
+        <DatePickerContainer theme={this.props.theme}>
           {this.state.isOpen && (
             <DatePicker
               dropdownMode="select"
@@ -182,6 +182,11 @@ class DatePickerComponent extends React.PureComponent {
       </DatePickerWrapper>
     )
   }
+}
+
+DatePickerComponent.propTypes = {
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object
 }
 
 export default DatePickerComponent

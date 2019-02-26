@@ -25,27 +25,26 @@ export const onKeyPress = ({ regex }) => (e) => {
 }
 
 const TextInputComponent = ({
-  id,
+  testId = {},
   fieldId,
   autoComplete = 'off',
   type = 'text',
   disabled = false,
-  error = false,
+  error,
   maxLength = 255,
   placeholder = 'placeholder.textInput',
-  mask = null,
+  mask,
   maskChar = null,
   ...props
 }) => {
   return (
     <InputMask
-      id={`text-input-${id}`}
+      id={`text-input-${testId.testSectionId}-${testId.testId}`}
       name={fieldId}
       type={type}
       placeholder={placeholder}
       autoComplete={autoComplete}
       disabled={disabled}
-      error={error}
       mask={mask}
       maskChar={mask ? null : maskChar}
       alwaysShowMask={false}
@@ -53,38 +52,35 @@ const TextInputComponent = ({
       onKeyPress={onKeyPress({ ...props })}
       maxLength={mask ? null : maxLength}
       style={props.style}
-      {...props} />
+      {...props}
+    />
   )
 }
 
 TextInputComponent.propTypes = {
-  /** Description of prop "fieldId". */
+  /** to fill <input name={fieldId} /> */
   fieldId: PropTypes.string,
-  /** Description of prop "id". */
-  id: PropTypes.string,
-  /** Description of prop "autoComplete". */
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object,
+  /**  */
   autoComplete: PropTypes.string,
-  /** Description of prop "type". */
+  /** to define type of <input /> */
   type: PropTypes.string,
-  /** Description of prop "placeholder". */
+  /** placeholder */
   placeholder: PropTypes.string,
-  /** Description of prop "mask". */
+  /** react-input-mask option */
   mask: PropTypes.string,
-  /** Description of prop "maskChar". */
+  /** react-input-mask option */
   maskChar: PropTypes.string,
-  /** Description of prop "disabled". */
+  /** handle disabled */
   disabled: PropTypes.bool,
-  /** Description of prop "error". */
-  error: PropTypes.bool,
-  /** Description of prop "onChange". */
+  /** handle Function */
   onChange: PropTypes.func,
-  /** Description of prop "onKeyPress". */
-  onKeyPress: PropTypes.func,
-  /** Description of prop "maxLength". */
+  /** define max length */
   maxLength: PropTypes.number,
-  /** Description of prop "regex". */
+  /** define REGEX when onKeyPress (not onChange) */
   regex: PropTypes.object,
-  /** Description of prop "style". */
+  /** styling component */
   style: PropTypes.object
 };
 

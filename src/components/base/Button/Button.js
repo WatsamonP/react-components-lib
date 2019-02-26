@@ -15,7 +15,7 @@ const Label = styled.span`
 `
 
 const ButtonComponent = ({
-  id,
+  testId = {},
   label = 'label.button',
   children,
   onClick = () => null,
@@ -30,7 +30,7 @@ const ButtonComponent = ({
 }) => {
   return (
     <button
-      id={`button-${id}`}
+      id={`button-${testId.testSectionId}-${testId.testId}`}
       style={style}
       onClick={onClick}
       disabled={disabled}
@@ -43,21 +43,33 @@ const ButtonComponent = ({
 }
 
 ButtonComponent.propTypes = {
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object,
+  /** to display Text on button */
   label: PropTypes.string,
+  /** to display Text on button when label="" */
   children: PropTypes.string,
+  /** handle Function */
   onClick: PropTypes.func,
+  /** handle disabled */
   disabled: PropTypes.bool,
+  /** to display ICON on left side of Text*/
   leftIcon: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
   ]),
+  /** to display ICON on right side of Text*/
   rightIcon: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
   ]),
+  /** styling component */
   style: PropTypes.object,
+  /** styling label */
   labelStyle: PropTypes.object,
+  /** styling left icon */
   leftIconStyle: PropTypes.object,
+  /** styling left icon */
   rightIconStyle: PropTypes.object,
 };
 

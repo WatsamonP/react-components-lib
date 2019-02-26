@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import classnames from 'classnames';
 import Label from '../Label';
-import BottomLabel from '../BottomLabel';
+import BottomLabel from './BottomLabel';
 
 const ComponentWrapper = styled.div`
   ${props => props.wrapperStyle ? props.wrapperStyle : ''}

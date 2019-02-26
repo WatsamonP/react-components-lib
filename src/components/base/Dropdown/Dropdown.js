@@ -14,7 +14,7 @@ const convertOption = (options, testId, currentLanguage) => {
       ...option,
       value: option.code,
       label: R.path([currentLanguage, 'label'], option.translations),
-      id: `dropdown-item-${testId.testSectionId}-${testId.testId}-${option.code}`,
+      testId: `dropdown-item-${testId.testSectionId}-${testId.testId}-${option.code}`,
     }
 
     newOptions.push(newObj)
@@ -32,16 +32,16 @@ class Dropdown extends React.PureComponent {
   render() {
     const {
       options = [],
-      id = {},
+      testId = {},
       value,
       placeholder = 'placeholder.dropdown',
       onClick,
-      styleConfig,
+      styleConfig = {},
       currentLanguage,
       disabled
     } = this.props
 
-    const convertedObj = convertOption(options, id, currentLanguage)
+    const convertedObj = convertOption(options, testId, currentLanguage)
 
     const obj = value ? {
       ...value,
@@ -66,14 +66,18 @@ class Dropdown extends React.PureComponent {
 }
 
 Dropdown.propTypes = {
-  id: PropTypes.object,
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object,
   /** 'th' or 'en' */
   currentLanguage: PropTypes.string,
+  /** vill return object */
   value: PropTypes.object,
+  /** data that need to display */
   options: PropTypes.array,
+  /**  */
   placeholder: PropTypes.string,
+  /** handle Function */
   onChange: PropTypes.func,
-  styleConfig: PropTypes.object,
 };
 
 export default Dropdown

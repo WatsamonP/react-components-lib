@@ -5,8 +5,9 @@ import classnames from 'classnames'
 import { Colors } from '../../../Style/constants'
 import Responsive from '../../../Style/Responsive'
 import { Label2 } from '../../Typography/Typography'
-import RadioChecked from '../../../assets/icon/radio-checked.svg'
-// import RadioChecked from './RadioIcon'
+// import RadioChecked from '../../../assets/icon/radio-checked.svg'
+import RadioChecked from './RadioIcon'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.ul`
   min-height: 56px;
@@ -159,11 +160,11 @@ export const RadioComponent = ({
     <Wrapper
       style={style} theme={theme}
       className={`${className || ''} ${classnames({ vertical })} ${classnames({ error })}`}
-      id={`choice-${testId.testId}-${testId.testSectionId}`}
+      testId={`choice-${testId.testSectionId}-${testId.testId}`}
     >
       {options.map(({ code, translations = {} }) => (
         <Item
-          id={`choice-${testId.testId}-${testId.testSectionId}-${code}`}
+          testId={`choice-${testId.testSectionId}-${testId.testId}-${code}`}
           key={`select-${fieldId}-${code}`}
           className={classnames({ disabled, active: code == value })}
           theme={theme}
@@ -178,5 +179,21 @@ export const RadioComponent = ({
   )
 }
 
+RadioComponent.propTypes = {
+  /** data that need to display */
+  options: PropTypes.array,
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object,
+  /** handle Function */
+  onClick: PropTypes.func,
+  /**  */
+  disabled: PropTypes.bool,
+  /** to handle theme */
+  theme: PropTypes.object,
+  /** code of data*/
+  value: PropTypes.string,
+  /**  */
+  vertical: PropTypes.bool,
+}
 
 export default RadioComponent

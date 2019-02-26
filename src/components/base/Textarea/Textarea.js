@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const KeyCode = { BACKSPACE: 8 }
 
@@ -22,26 +23,43 @@ export const onKeyPress = ({ regex }) => (e) => {
   return false
 }
 
-const TextInputComponent = ({
-  autoComplete="off" ,
+const TextareaComponent = ({
+  autoComplete = "off",
   testId = {},
   type = "text",
   disabled = false,
   maxLength = 255,
-  error = false,
+  error,
   placeholder = 'placeHolder.textarea',
   ...props
 }) => {
   return (
     <textarea
       type={type}
+      id={`text-${testId.testSectionId}-${testId.testId}`}
       placeholder={placeholder}
       disabled={disabled}
       onChange={props.onChange}
       onKeyPress={onKeyPress({ ...props })}
       maxLength={maxLength}
-      {...props} />
+      {...props} 
+      />
   )
 }
 
-export default TextInputComponent
+TextareaComponent.propTypes = {
+  /** */
+  autoComplete: PropTypes.bool,
+  /** for testing testId = { testSectionId: "", testId: "" } */
+  testId: PropTypes.object,
+  /** to define type of <input /> */
+  type: PropTypes.string,
+  /** handle disabled */
+  disabled: PropTypes.bool,
+  /** define max length */
+  maxLength: PropTypes.number,
+  /** placeholder */
+  placeholder: PropTypes.string
+}
+
+export default TextareaComponent
