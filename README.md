@@ -8,11 +8,11 @@ yarn add ...
 
 ## Components
 - ButtonComponent
-- CheckboxComponent `just styling`
-- DatePickerComponent `just styling`
+- CheckboxComponent
+- DatePickerComponent
 - DropdownComponent
 - PopupSearchComponent
-- RadioComponent `just styling`
+- RadioComponent
 - TextareaComponent
 - TextInputComponent
 - withLabel
