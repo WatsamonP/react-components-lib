@@ -1,13 +1,9 @@
 # react-components-lib
 
-> 
-
-[![NPM](https://img.shields.io/npm/v/react-components-lib.svg)](https://www.npmjs.com/package/react-components-lib) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
 
 ```bash
-npm install --save react-components-lib
+yarn add ...
 ```
 
 ## Components
@@ -22,9 +18,10 @@ npm install --save react-components-lib
 - withLabel
 
 ### Prop Types of Component
-for each Component you can see Prop types on **storybook**, run `yarn storybook`
+for each Component you can see Prop types on [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://sad-hawking-0f7d4e.netlify.com)
+
 <details>
-<summary>Summary Prop Type of Components</summary>
+<summary>Components Props</summary>
   TODO
 </details>
 
@@ -33,28 +30,49 @@ for each Component you can see Prop types on **storybook**, run `yarn storybook`
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import styled from 'styled-components'
+import TextInputStyle from './PATH/TO/TextInputStyle'
 
-import MyComponent from 'react-components-lib'
+import {
+  withLabel,
+  TextInputComponent,
+  TextareaComponent,
+  ButtonComponent,
+  DropdownComponent,
+  PopupSearchComponent,
+  RadioComponent,
+  CheckboxComponent,
+  DatePickerComponent,
+} from 'react-components-lib'
 
-class Example extends Component {
+const TextInputWithStyle = styled(TextInputComponent)`
+  ${TextInputStyle}
+`
+const TextInputWithLabel = withLabel(TextInputWithStyle)
+
+
+class Example extends React.Component {
+
   render () {
     return (
-      <MyComponent />
+      <TextInputWithLabel />
     )
   }
 }
 ```
 
+<hr>
 
 ## Storybook
 
-
-
-```
+```bash
 yarn storybook
 ```
 
+or
+
+> [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://sad-hawking-0f7d4e.netlify.com)
 
 #### Addons
 
@@ -66,13 +84,13 @@ yarn storybook
 | TESTS | View the results of components' unit tests in Storybook |
 | README |
 
-> [storybook](https://github.com/storybooks/storybook)
+> [_storybook doc_](https://github.com/storybooks/storybook)
 
-<br>
+<hr>
 
 ### Example App with `react-components-lib`
 on `src/example`
 
-```
+```bash
 yarn start
 ````

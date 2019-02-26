@@ -1,5 +1,7 @@
 ## :tada: Simple Use
 
+> base on [AppMan: thai-samsung-life component](https://github.com/appman-agm/thai-samsung-life) 
+
 > EXAMPLE to use Components on `src/example`<br>
 > in `src/example` can `yarn start` to view example Application.
 
@@ -13,6 +15,38 @@
 | theme | `object` | - | handle Theme
 
 #### Define
+
+<details>
+<summary>:file_folder: CheckboxTheme.js</summary>
+
+```js
+import { JoyTheme, Font } from '../../../../Style/JoyTheme'
+
+const RadioTheme = {
+  border: JoyTheme.NAVY,
+  checkColor: JoyTheme.WHITE,
+  checkedColor: JoyTheme.CREAM,
+  checkedStroke: JoyTheme.LIGHT_NAVY,
+  checkedBackground: JoyTheme.NAVY,
+  labelColor: JoyTheme.NAVY,
+  error: {
+    border: JoyTheme.DANGER,
+    checkedColor: JoyTheme.WHITE,
+    checkedBackground: JoyTheme.WHITE,
+    labelColor: JoyTheme.GREY,
+  },
+  labelStyle: {
+    'font-family': Font.DEFAULT,
+    'font-size': '16px'
+  }
+}
+
+export default RadioTheme;
+```
+</details>
+
+<br>
+
 ```js
 import * as R from 'ramda'
 import { CheckboxComponent } from 'react-components-lib'
@@ -73,32 +107,3 @@ handleClick = (key) => (isChecked) => {
   this.setState({ [fieldId]: newState })
 }
 ```
-
-<details>
-<summary>ex. CheckboxTheme</summary>
-
-```js
-import { JoyTheme, Font } from '../../../../Style/JoyTheme'
-
-const RadioTheme = {
-  border: JoyTheme.NAVY,
-  checkColor: JoyTheme.WHITE,
-  checkedColor: JoyTheme.CREAM,
-  checkedStroke: JoyTheme.LIGHT_NAVY,
-  checkedBackground: JoyTheme.NAVY,
-  labelColor: JoyTheme.NAVY,
-  error: {
-    border: JoyTheme.DANGER,
-    checkedColor: JoyTheme.WHITE,
-    checkedBackground: JoyTheme.WHITE,
-    labelColor: JoyTheme.GREY,
-  },
-  labelStyle: {
-    'font-family': Font.DEFAULT,
-    'font-size': '16px'
-  }
-}
-
-export default RadioTheme;
-```
-<details>

@@ -1,4 +1,4 @@
-export const TextInputInfo = {
+export const TextareaInfo = {
   Start: {
     info: {
       text: `
@@ -39,7 +39,7 @@ export const TextInputInfo = {
       
       📑 ex. on README Panel
 
-      🔎 view **Prop Types** at _TexInput > Getting Start_ story
+      🔎 view **Prop Types** at _Textarea > Getting Start_ story
       `
     }
   }

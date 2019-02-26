@@ -11,6 +11,7 @@ import { TEXT_TYPE_LIST } from './utils/KnobSelectList'
 
 // component
 import Textarea from '../src/components/base/Textarea'
+import withLabel from '../src/components/base/withLabel'
 
 // styled
 import TextInputStyle from './Styles/TextInputStyle'
@@ -22,8 +23,8 @@ const TextareaWithStyle = styled(Textarea)`
 `
 
 // docs
-import { TextInputInfo } from './Notes'
-import { Start, withStyled } from './Notes/TextInput/README'
+import { TextareaInfo } from './Notes'
+import { Start, SimpleUse } from './Notes/Textarea/README'
 
 
 const actionWithReturn = (name) => (...args) => {
@@ -37,7 +38,6 @@ const stories = storiesOf('Textarea', module)
 // Default
 stories
   .addDecorator(withReadme(Start))
-  // .addParameters({ jest: ['TextInput'] })
   .add('Getting Start', () => (
     <Textarea
       fieldId={text("Field ID (name)", "Getting_Start")}
@@ -45,31 +45,33 @@ stories
       type={select("Type", TEXT_TYPE_LIST, 'text')}
       placeholder={text("Placeholder", "Getting Start")}
       regex={object("REGEX", {})}
-      onChange={actionWithReturn('textinput-change')}
+      onChange={actionWithReturn('textarea-change')}
       disabled={boolean("Disabled", false)}
       error={boolean("Error", false)}
       maxLength={number("Max Length")}
       className={classnames({ error: boolean("Error", false) })}
       style={object("Style", { backgroundColor: 'pink' })}
     />
-  ), TextInputInfo['Start']);
+  ), TextareaInfo['Start']);
 
 /***************************************************************** */
+const TextareaWithLabel = withLabel(TextareaWithStyle)
 stories
-  .addDecorator(withReadme(withStyled))
-  //.addParameters({ jest: ['TextInput'] })
+  .addDecorator(withReadme(SimpleUse))
   .add('with Styled 💅', () => (
-    <TextareaWithStyle
+    <TextareaWithLabel
       fieldId={text("Field ID (name)", "TextInputStyle")}
-      id={text("ID", 'TextInputStyle')}
+      id={text("ID", 'TextareaStyle')}
       type={select("Type", TEXT_TYPE_LIST, 'text')}
       placeholder={text("Placeholder", 'Styled Component')}
       regex={object("REGEX", {})}
-      onChange={actionWithReturn('textinput-change')}
+      onChange={actionWithReturn('textarea-change')}
       disabled={boolean("Disabled", false)}
       error={boolean("Error", false)}
       maxLength={number("Max Length")}
       className={classnames({ error: boolean("Error", false) })}
       style={object("Style", {})}
+      label={text("label", 'Hello Textarea')}
+      optionalLabel={text("label", '(if any)')}
     />
-  ), TextInputInfo['withStyled']);
+  ), TextareaInfo['SimpleUse']);

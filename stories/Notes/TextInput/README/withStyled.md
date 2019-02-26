@@ -4,7 +4,7 @@
 
 
 <details>
-<summary>ex. TextInputStyle</summary>
+<summary>:file_folder: TextInputStyle.js</summary>
 
 ```js
 import { css } from 'styled-components'

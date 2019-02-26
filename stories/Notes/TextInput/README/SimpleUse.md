@@ -15,7 +15,7 @@ EMAIL_VALIDATION = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 <br>
 
 <details>
-<summary>ex. TextInputStyle</summary>
+<summary>:file_folder: TextInputStyle,js</summary>
 
 ```js
 import { css } from 'styled-components'
@@ -51,7 +51,7 @@ export default css`
 </details>
 
 <details>
-<summary>ex. withLabelStyle</summary>
+<summary>:file_folder: withLabelStyle.js</summary>
 
 ```js
 import { css } from 'styled-components'
@@ -79,7 +79,7 @@ export default css`
 </details>
 
 <details>
-<summary>ex. ButtonStyle</summary>
+<summary>:file_folder: ButtonStyle.js</summary>
 
 ```js
 import { css } from 'styled-components'

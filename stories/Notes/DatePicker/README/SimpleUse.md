@@ -1,5 +1,7 @@
 ## :tada: Simple Use DatePicker
 
+> base on [AppMan: thai-samsung-life component](https://github.com/appman-agm/thai-samsung-life) 
+
 > EXAMPLE to use Components on `src/example`<br>
 > in `src/example` can `yarn start` to view example Application.
 
@@ -13,39 +15,10 @@
 | theme | `object` | - | handle Theme
 
 #### Define
-```js
-import { DatePickerComponent } from 'react-components-lib'
-import DatePickerTheme from '../config/theme/DatePickerTheme'
 
-state = { myDate: null }
-
-```
-
-<hr/>
-
-#### Render()
-```js
-<DatePickerComponent
-  placeholder={'วัน/เดือน/ปี'}
-  onClick={this.handleClick}
-  value={this.state.myDate}
-  minDate={new Date()}
-  theme={DatePickerTheme}
-/>
-```
-
-<hr/>
-
-#### ex. Handle Function
-```js
-
-handleClick = (res) => {
-  this.setState({ myDate: res })
-}
-```
 
 <details>
-<summary>ex. DatePickerTheme.js</summary>
+<summary>:file_folder: DatePickerTheme.js</summary>
 
 ```js
 import { JoyTheme, Font } from '../../../../Style/JoyTheme'
@@ -88,7 +61,7 @@ export default DatePickerTheme
 <br>
 
 <details>
-<summary>ex. DatePickerStyle.js</summary>
+<summary>:file_folder: DatePickerStyle.js</summary>
 
 ```js
 import { css } from 'styled-components'
@@ -801,3 +774,35 @@ export default css`
 `
 ```
 </details>
+<br>
+
+```js
+import { DatePickerComponent } from 'react-components-lib'
+import DatePickerTheme from '../config/theme/DatePickerTheme'
+
+state = { myDate: null }
+
+```
+
+<hr/>
+
+#### Render()
+```js
+<DatePickerComponent
+  placeholder={'วัน/เดือน/ปี'}
+  onClick={this.handleClick}
+  value={this.state.myDate}
+  minDate={new Date()}
+  theme={DatePickerTheme}
+/>
+```
+
+<hr/>
+
+#### ex. Handle Function
+```js
+
+handleClick = (res) => {
+  this.setState({ myDate: res })
+}
+```
