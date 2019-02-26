@@ -42,7 +42,7 @@ class CheckboxSimpleUse extends React.Component {
     healthQues1: {
       fieldId: 'healthQues1',
       options: master.healthQues1,
-      id: {
+      testId: {
         testId: 'testId',
         testSectionId: 'testSectionId'
       },
@@ -87,7 +87,7 @@ class CheckboxSimpleUse extends React.Component {
               <Checkbox
                 value={this.state.healthQues1.value[key.code]}
                 label={key.translations.th.label}
-                id={this.state.id}
+                testId={this.state.testId}
                 onClick={this.handleClick(key)}
                 error={boolean("📕 Error", false)}
                 theme={(this.handleTheme(boolean("🎨 ENABLE THEME", true)))}

@@ -20,5 +20,14 @@
         ]
       ]
     },
-  }
+  },
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "fileName": false,
+        "minify": false
+      }
+    ]
+  ]
 }

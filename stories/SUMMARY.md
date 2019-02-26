@@ -2,7 +2,7 @@
 
 | **_#_** | **type** | **Button** | **TextInput***| **Dropdown** | **PopupSearch** | **Radio** | **Checkbox** | **DatePicker** |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **id** | _string or object_ | - | - | 
+| **`testId **`** | _object_ | - | - | 
 | **fieldId** | _string_ | - | set(name) | 
 |
 | **Handle Function** | _func_ |  onClick | onChange | onChange | onClick | onClick | onClick | onClick
@@ -12,7 +12,7 @@
 | **placeholder** | _string | - | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | - | - | :heavy_check_mark: |
 | **disbled**| _bool_| 
 | **error**| _bool_|
-| **currentLanguage** | _string_ `'th' 'en'`|-|-|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|-|
+| **currentLanguage** | _string_ `'th' 'en'`|-|-|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | tableConfig| `object` |-|-|-|:heavy_check_mark:|-|-|-|
 | cache| `CellMeasurerCache` |-|-|-|:heavy_check_mark:|-|-|-|
 |
@@ -29,10 +29,9 @@
 | leftButtonOption| `render` |-|-|-|:heavy_check_mark:|-|-|-|
 | rightButtonOption| `render` |-|-|-|:heavy_check_mark:|-|-|-|
 
-
-
-- `TextInput*`  TextInput and Textarea use same Props<br>
-- `theme*` props object of **colors code**
+- `TextInput*`  TextInput and Textarea use same Props except _mask options_
+- `theme*` props object of **colors code** or **style object**, to config `theme` click `theme config` button on components stories
+- every Component use `testId **` = { testSectionId: "", testId: "" }
 
 ---
 

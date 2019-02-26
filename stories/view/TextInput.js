@@ -35,7 +35,7 @@ class TextInputSimpleUse extends React.Component {
   state = {
     email: {
       fieldId: 'email.fieldId',
-      id: 'email.test',
+      id: { testSectionId: "emailTestSectionId", testId: "emailTestId" },
       label: "INPUT EMAIL",
       required: true,
       error: false,

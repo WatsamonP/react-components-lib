@@ -27,21 +27,21 @@ const actionWithReturn = (name) => (...args) => {
 const stories = storiesOf(`Radio 🎨`, module)
 /******************************************************************* */
 // Default
-// stories.add('Getting Start', () => (
-//   <Radio
-//     value={select("🎯 Value (code)", GENDER_LIST, 'M')}
-//     fieldId={text("fieldId", "genders")}
-//     options={object("Options", genders)}
-//     onClick={actionWithReturn('radio-click')}
-//     currentLanguage={select('currentLanguage', LANGUAGE_LIST, 'th')}
-//     error={boolean("📕 Error", false)}
-//     disabled={boolean("📓 Disabled", false)}
-//   />
-// ), RadioInfo['Start'])
+stories.add('Getting Start', () => (
+  <Radio
+    value={select("🎯 Value (code)", GENDER_LIST, 'M')}
+    fieldId={text("fieldId", "genders")}
+    options={object("Options", genders)}
+    onClick={actionWithReturn('radio-click')}
+    currentLanguage={select('currentLanguage', LANGUAGE_LIST, 'th')}
+    error={boolean("📕 Error", false)}
+    disabled={boolean("📓 Disabled", false)}
+  />
+), RadioInfo['Start'])
 
 stories
   .addDecorator(withReadme(SimpleUse))
-  //.addParameters({ jest: ['Radio'] })
+  .addParameters({ jest: ['Radio'] })
   .add('Simple Use', () => (
     <SimpleUseCompoent />
   ), RadioInfo['SimpleUse'])

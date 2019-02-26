@@ -44,7 +44,7 @@ stories
 
 stories
   .addDecorator(withReadme(SimpleUse))
-  //.addParameters({ jest: ['Dropdown'] })
+  .addParameters({ jest: ['Dropdown'] })
   .add('Simple Use', () => (
     <SimpleUseCompoent />
   ), DropdownInfo['SimpleUse'])

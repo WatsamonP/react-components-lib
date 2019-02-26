@@ -84,6 +84,35 @@ const cache = new CellMeasurerCache({
 
 ```js
 import React from 'react'
+import { PopupSearchComponent } from 'react-compoents-lib'
+import SearchIcon from '../assets/icon/magnify-icon.svg'
+import ClearIcon from '../assets/icon/cross-black-circular-button.svg'
+import PopupStyle from '../Styles/PopupStyle'
 
-// TODO
+state = {
+  displayStyled: true,
+  masterTitle: master.title,
+  selectedTitle: {},
+  columns: [{ label: "คำนำหน้าชื่อ" }]
+}
+
+getCurrentLanguage = () => ('th')
+
+handleClickOption = (object) => {
+  this.setState({ selectedTitle: object })
+}
+
+<PopupSearchComponent
+  // data
+  columns={this.state.columns}
+  options={this.state.masterTitle}
+  value={this.state.selectedTitle || this.state.masterTitle[0]}
+  placeholder='กรุณาค้นหาหรือเลือกคำนำหน้าชื่อ'
+  currentLanguage={this.getCurrentLanguage()}
+  onClick={this.handleClickOption}
+  //style
+  styleConfig={PopupStyle}
+  searchIcon={<SearchIcon />}
+  clearIcon={<ClearIcon />}
+/>
 ```

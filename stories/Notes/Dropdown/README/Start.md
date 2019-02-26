@@ -8,5 +8,16 @@
 
 ## Usage
 ```js
-  // TODO
+import { DatePickerComponent } from 'react-components-lib'
+import master from './utils/master.json'
+
+const identityResources = master.identityResources
+
+<Dropdown
+  value={null}
+  options={identityResources}
+  placeholder={"เอกสารที่ใช้แสดง"}
+  onClick={this.handleOnClick}
+  currentLanguage={'th'}
+  />
 ```

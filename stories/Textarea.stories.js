@@ -36,13 +36,13 @@ const stories = storiesOf('Textarea', module)
 /***************************************************************** */
 // Default
 stories
-  // .addDecorator(withReadme(Start))
+  .addDecorator(withReadme(Start))
   // .addParameters({ jest: ['TextInput'] })
   .add('Getting Start', () => (
     <Textarea
       fieldId={text("Field ID (name)", "Getting_Start")}
-      id={text("ID", 'Getting_Start')}
-      type={select("Type", TEXT_TYPE_LIST)}
+      id={object("ID", { testSectionId: "testSectionId", testId: "testId" })}
+      type={select("Type", TEXT_TYPE_LIST, 'text')}
       placeholder={text("Placeholder", "Getting Start")}
       regex={object("REGEX", {})}
       onChange={actionWithReturn('textinput-change')}
@@ -56,7 +56,7 @@ stories
 
 /***************************************************************** */
 stories
-  //.addDecorator(withReadme(withStyled))
+  .addDecorator(withReadme(withStyled))
   //.addParameters({ jest: ['TextInput'] })
   .add('with Styled 💅', () => (
     <TextareaWithStyle

@@ -9,10 +9,6 @@ export const RadioInfo = {
       🔨 Handle Function: _**onClick( )**_
 
       🎯 **Radio** will return **'code'** 
-
-      ---
-
-      👀 ex. on README Panel
       
       ---
 

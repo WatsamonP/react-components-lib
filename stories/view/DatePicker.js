@@ -1,7 +1,7 @@
 import React from 'react'
 
 // storybook
-import { text, object, color, boolean } from '@storybook/addon-knobs/react';
+import { text, object, boolean } from '@storybook/addon-knobs/react';
 
 // component
 import DatePicker from '../../src/components/base/DatePicker'
@@ -12,23 +12,36 @@ import TextInputStyle from '../Styles/TextInputStyle'
 import ReturnValue from '../components/ReturnValue'
 import Popup from '../components/Popup'
 import DatePickerJpg from '../assets/images/DatePicker.jpg'
+import DatePickerStyle from '../Styles/DatePickerStyle'
 
 const myTheme = () => {
   return {
-    icon: object('Icon (style)', {
-      'padding': '11px 15px',
+    iconStyle: object("icon", {
+      'padding': '10px 15px',
       '#Shape': {
-        fill: color("#Shape fill", JoyTheme.TAN)
+        fill: JoyTheme.LIGHT_NAVY
       }
     }),
-    clearIcon: object('ClearIcon (style)', { padding: '12px 15px' }),
-    textInput: {
+    clearIconStyle: object("clearIcon", {
+      padding: '12px 10px',
+      cursor: 'pointer'
+    }),
+    textInput: object("textInput", {
       ...TextInputStyle,
       'font-family': Font.DEFAULT,
       borderColor: JoyTheme.NAVY,
-      boxSizing: 'border-box'
-    },
-    header: { 'font-family': Font.DEFAULT, }
+      boxSizing: 'border-box',
+      'text-align': 'center'
+    }),
+    dateTitle: object("dateTitle", { 'font-family': Font.DEFAULT, color: JoyTheme.NAVY }),
+    datePickerStyle: DatePickerStyle,
+    buttonWrapper: object("buttonWrapper",{
+      'font-family': Font.DEFAULT,
+      'font-size': '20px',
+      color: JoyTheme.NAVY,
+      'background-color': JoyTheme.WHITE,
+      'text-shadow': `2px 2px 2px ${JoyTheme.CREAM}`
+    })
   }
 }
 
@@ -41,7 +54,7 @@ class DatePickerSimpleUse extends React.Component {
     this.setState({ mySelect: res })
   }
 
-  handleTheme = (bool) => (bool? myTheme() : {})
+  handleTheme = (bool) => (bool ? myTheme() : {})
 
   render() {
     return (
@@ -62,8 +75,6 @@ class DatePickerSimpleUse extends React.Component {
         <ReturnValue
           title={`Return timestamp`}
           value={this.state.mySelect} />
-
-
       </div>
     )
   }

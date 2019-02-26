@@ -74,7 +74,7 @@ const StyledBtn = styled(Button)`
 `
 stories
   .addDecorator(withReadme(withStyled))
-  //.addParameters({ jest: ['Button'] })
+  .addParameters({ jest: ['Button'] })
   .add('Button + 💅', () => (
     <StyledBtn
       {...eventFormButton}

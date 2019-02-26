@@ -4,6 +4,7 @@ import { PopupSearchInfo } from './PopupSearch/INFO'
 import { DropdownInfo } from './Dropdown/INFO'
 import { RadioInfo } from './Radio/INFO'
 import { CheckboxInfo } from './Checkbox/INFO'
+import { DatePickerInfo } from './DatePicker/INFO'
 
 export {
   ButtonInfo,
@@ -11,5 +12,6 @@ export {
   PopupSearchInfo,
   DropdownInfo,
   RadioInfo,
-  CheckboxInfo
+  CheckboxInfo,
+  DatePickerInfo
 }

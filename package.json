@@ -1,12 +1,12 @@
 {
   "name": "react-components-lib",
   "version": "1.0.2",
-  "description": ">",
+  "description": "",
   "author": "WatsamonP",
   "license": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WatsamonP/react-components-lib.git"
+    "url": "git@github.com:WatsamonP/react-components-lib.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -20,6 +20,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
+    "build-storybook": "build-storybook -c .storybook",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest --config ./jest.config.js",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true --config ./jest.config.js",
@@ -43,7 +44,7 @@
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addon-notes": "^4.1.11",
     "@storybook/addon-options": "^4.1.11",
-    "@storybook/addon-storysource": "^4.1.11",
+    "@storybook/addon-storysource": "^4.1.13",
     "@storybook/addons": "^4.1.11",
     "@storybook/react": "^4.1.11",
     "@svgr/rollup": "^2.4.1",
@@ -51,6 +52,7 @@
     "babel-eslint": "^8.2.5",
     "babel-loader": "7",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -70,6 +72,7 @@
     "file-loader": "^3.0.1",
     "gh-pages": "^1.2.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest-styled-components": "^6.3.1",
     "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.1",

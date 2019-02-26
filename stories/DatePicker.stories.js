@@ -1,28 +1,22 @@
 import React from 'react';
-import styled from 'styled-components'
-import classnames from 'classnames'
+
 // storybook
 import { storiesOf } from '@storybook/react';
-import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
+import { withReadme } from 'storybook-readme';
+
 // component
 import SimpleUseCompoent from './view/DatePicker'
-// styled
-import DatePickerStyle from './Styles/DatePickerStyle'
+
+// notes
+import { DatePickerInfo } from './Notes'
+import { SimpleUse } from './Notes/DatePicker/README'
+
 
 const stories = storiesOf(`DatePicker 🎨`, module)
 /******************************************************************* */
-// Default
-// stories.add('Default', () => (
-//   <DatePicker
-//     styleConfig={DatePickerStyle}
-//   />
-// ), //DropdownInfo['Default']
-// )
-
 stories
   .addParameters({ jest: ['DatePicker'] })
+  .addDecorator(withReadme(SimpleUse))
   .add('Simple Use', () => (
     <SimpleUseCompoent />
-  ), //DropdownInfo['Default']
-  )
+  ), DatePickerInfo['SimpleUse'])

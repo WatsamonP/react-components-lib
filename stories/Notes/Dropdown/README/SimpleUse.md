@@ -4,6 +4,9 @@
 >
 > [💅 styled-component ](https://www.styled-components.com/)
 
+> EXAMPLE to use Components on `src/example`<br>
+> in `src/example` can `yarn start` to view example Application.
+
 
 <details>
 <summary>ex. Master data structure</summary>
@@ -103,17 +106,96 @@ export default css`
 `
 ```
 </details>
+<br>
+<details>
+<summary>:file_folder: withLabelStyle.js</summary>
+
+```js
+import { css } from 'styled-components'
+import { JoyTheme } from './JoyTheme'
+
+export default css`
+  &.error {
+    color: ${JoyTheme.DANGER};
+    >:nth-child(2) {
+      border: 1px solid ${JoyTheme.DANGER};
+    }
+  }
+
+  .label {
+    color: ${JoyTheme.NAVY}
+  }
+
+  .bottomLabel {
+    &.error {
+      color: ${JoyTheme.DANGER};
+    }
+  }
+`
+```
+</details>
 
 ## Usage
 
 ```js
-import React from 'react'
+import { DropdownComponent, withLabel } from 'react-components-lib'
+import DropdownStyle from '../Styles/DropdownStyle'
+import withLabelStyle from '../Styles/withLabelStyle'
 
+const DropdownWithLabel = withLabel(DropdownComponent);
+
+state = {
+  identityResources: {
+  label: 'Identity Resources',
+  value: null,
+  options: master.identityResources,
+  placeholder: 'เอกสารที่ใช้แสดง',
+  error: false,
+  required: true,
+  requiredMessage: 'Required Field',
+  errorMessage: 'Hello Error',
+  id: {
+    testSectionId: 'testSectionId',
+    testId: 'testId'
+  },
+}
+
+render() {
+  const { identityResources } = this.state;
+
+  return (
+    <div>
+      <DropdownWithLabel
+        value={identityResources.value}
+        id={identityResources.id}
+        options={identityResources.options}
+        placeholder={identityResources.placeholder}
+        onClick={this.handleSelectOption}
+        currentLanguage={getCurrentLanguage()}
+        styleConfig={DropdownStyle}
+        disabled={false}
+        className={classnames({ disabled: false })}
+        // withLabel Option
+        label={identityResources.label}
+        optionalLabel={'(if any)'}
+        required={identityResources.required}
+        error={identityResources.error}
+        requiredMessage={identityResources.requiredMessage}
+        errorMessage={identityResources.errorMessage}
+        wrapperStyle={withLabelStyle}
+      />
+    </div>
+  )
+}
 ```
+
+<hr>
 
 ### Handle Function
 
 ```js 
+
+  const getCurrentLanguage = () => ('th')
   
   handleSelectOption = (selectedOption) => {
     this.setState({ selectedIdentityResources: selectedOption })

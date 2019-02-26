@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { JoyTheme } from './JoyTheme'
 
 export default css`
   .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle,
@@ -341,7 +342,7 @@ export default css`
     .react-datepicker__time-box
     ul.react-datepicker__time-list
     li.react-datepicker__time-list-item--selected {
-    background-color: #216ba5;
+    background-color: ${JoyTheme.NAVY};
     color: white;
     font-weight: bold;
   }
@@ -351,7 +352,7 @@ export default css`
     .react-datepicker__time-box
     ul.react-datepicker__time-list
     li.react-datepicker__time-list-item--selected:hover {
-    background-color: #216ba5;
+    background-color: ${JoyTheme.NAVY};
   }
 
   .react-datepicker__time-container
@@ -439,14 +440,14 @@ export default css`
   .react-datepicker__day--in-selecting-range,
   .react-datepicker__day--in-range {
     border-radius: 0.3rem;
-    background-color: #216ba5;
+    background-color: ${JoyTheme.NAVY};
     color: #fff;
   }
 
   .react-datepicker__day--selected:hover,
   .react-datepicker__day--in-selecting-range:hover,
   .react-datepicker__day--in-range:hover {
-    background-color: #1d5d90;
+    background-color: ${JoyTheme.CREAM}
   }
 
   .react-datepicker__day--keyboard-selected {
@@ -456,7 +457,7 @@ export default css`
   }
 
   .react-datepicker__day--keyboard-selected:hover {
-    background-color: #1d5d90;
+    background-color: ${JoyTheme.CREAM}
   }
 
   .react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {
@@ -611,7 +612,7 @@ export default css`
   }
 
   .react-datepicker__close-icon::after {
-    background-color: #216ba5;
+    background-color: ${JoyTheme.NAVY};
     border-radius: 50%;
     bottom: 0;
     box-sizing: border-box;

@@ -35,10 +35,9 @@ stories
   .add('Getting Start', () => (
     <TextInput
       fieldId={text("Field ID (name)", "Getting_Start")}
-      id={text("ID", 'Getting_Start')}
+      id={object("ID", { testSectionId: "testSectionId", testId: "testId" })}
       type={select("Type", TEXT_TYPE_LIST)}
       placeholder={text("Placeholder", "Getting Start")}
-      regex={object("REGEX", {})}
       onChange={actionWithReturn('textinput-change')}
       disabled={boolean("Disabled", false)}
       error={boolean("Error", false)}
@@ -56,7 +55,7 @@ stories
   .add('with Mask', () => (
     <TextInput
       fieldId={text("Field ID (name)", "textInputWithMask")}
-      id={text("ID", 'textInputWithMask')}
+      id={object("ID", { testSectionId: "testSectionId", testId: "testId" })}
       type={select("Type", TEXT_TYPE_LIST)}
       placeholder={text("Placeholder", "X XXXXX XXXX XX X")}
       mask={text("Mask", "9 99999 9999 99 9")}
@@ -80,10 +79,9 @@ stories
   .add('with Styled 💅', () => (
     <TextInputStyledComponent
       fieldId={text("Field ID (name)", "TextInputStyle")}
-      id={text("ID", 'TextInputStyle')}
+      id={object("ID", { testSectionId: "testSectionId", testId: "testId" })}
       type={select("Type", TEXT_TYPE_LIST, 'text')}
       placeholder={text("Placeholder", 'Styled Component')}
-      regex={object("REGEX", {})}
       onChange={actionWithReturn('textinput-change')}
       disabled={boolean("Disabled", false)}
       error={boolean("Error", false)}
@@ -95,6 +93,6 @@ stories
 
 
 stories
-  //.addParameters({ jest: ['TextInput'] })
+  .addParameters({ jest: ['TextInput'] })
   .addDecorator(withReadme(SimpleUse))
   .add('Simple Use', () => <SimpleUseCompoent />, TextInputInfo['SimpleUse'])

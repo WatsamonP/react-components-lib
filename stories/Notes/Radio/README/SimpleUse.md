@@ -2,6 +2,13 @@
 
 > base on [AppMan: thai-samsung-life component](https://github.com/appman-agm/thai-samsung-life) 
 
+> EXAMPLE to use Components on `src/example`<br>
+> in `src/example` can `yarn start` to view example Application.
+
+
+
+<hr>
+
 ## Props Colors & Style
 > view Prop Types on _Radio > **Getting Start**_
 > default Style depend on _thai-samsung-life_
@@ -12,12 +19,14 @@
 | labelStyle | style | `ex. below Table` |
 
 ### Color Prop ( prop as color code | string )
-| name | type | description |
-| :--- | :---: | :--- |
-| wrapperBorder | color | 
+Click `Theme Config` Button to see Position of Style
+
+| name | 
+| :--- | 
+| wrapperBorder | 
 | wrapperBackground
-| symbolsColor
-| symbolsStroke
+| symbolColor
+| symbolStroke
 | labelColor
 | itemBorder
 | itemColor 
@@ -34,4 +43,6 @@
 | xxx.labelColor
 | xxx.itemColor
 | xxx.itemBorder
-| xxx.symbolsStroke
+| xxx.symbolStroke
+
+`symbol` without `s`
