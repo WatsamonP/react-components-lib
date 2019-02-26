@@ -70,7 +70,7 @@ Dropdown.propTypes = {
   testId: PropTypes.object,
   /** 'th' or 'en' */
   currentLanguage: PropTypes.string,
-  /** vill return object */
+  /** will return object */
   value: PropTypes.object,
   /** data that need to display */
   options: PropTypes.array,
