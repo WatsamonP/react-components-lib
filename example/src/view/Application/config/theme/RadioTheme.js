@@ -2,9 +2,9 @@ import { JoyTheme, Font } from '../../../../Style/JoyTheme'
 
 const RadioTheme = {
   // wrapper
-  wrapperStyle: { 'min-height': '50px', 'margin': '0' },
-  wrapperBorder: '', //JoyTheme.NAVY
-  wrapperBackground: JoyTheme.LIGHT,
+  wrapperStyle: { 'min-height': '48px', 'margin': '0', 'border-radius': '8px' },
+  wrapperBorder: JoyTheme.NAVY,
+  wrapperBackground: JoyTheme.WHITE,
 
   // item วงกลม
   symbolColor: JoyTheme.WHITE,
@@ -33,7 +33,7 @@ const RadioTheme = {
   },
 
   error: {
-    itemColor: JoyTheme.LIGHT,
+    itemColor: JoyTheme.WHITE,
     itemBorder: JoyTheme.DANGER,
     symbolStroke: JoyTheme.DANGER,
     labelColor: JoyTheme.DANGER,
@@ -41,7 +41,7 @@ const RadioTheme = {
 
   labelStyle: {
     'font-family': Font.DEFAULT,
-    'font-size': '16px',
+    'font-size': '14px',
   }
 }
 

@@ -9,7 +9,7 @@ export default css`
   text-decoration: none;
   color: ${JoyTheme.NAVY};
   display: block;
-  transition: 0.3s;
+  transition: 0.2s;
   border-bottom: 1px solid ${JoyTheme.GREY};
   
   &.active {

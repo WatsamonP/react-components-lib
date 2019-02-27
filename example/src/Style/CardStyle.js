@@ -6,19 +6,17 @@ export default css`
   border-radius: 8px;
   transition: 0.3s;
   margin-top: 20px;
-  padding: 5px;
+  padding: 5px 5px 0px 5px;
   background-color: ${JoyTheme.WHITE};
   text-align:left;
-  :hover {
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
-  }
 
   .container {
-    padding: 2px 16px 10px;
+    padding: 2px 16px 0px;
+    height: 76%;
+    overflow-y: auto; 
     > pre {
       font-family: ${Font.DEFAULT};
     }
-
   }
 
   .footer {
@@ -52,6 +50,6 @@ export default css`
   .line {
     border-bottom: 2px solid ${JoyTheme.LIGHT_GREY};
     box-shadow: 0 20px 20px -20px ${JoyTheme.GREY};
-    padding: 0px 16px;
+    padding: 0px 12px;
   }
 ` 

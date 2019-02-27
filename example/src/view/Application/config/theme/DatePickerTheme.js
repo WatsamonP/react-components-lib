@@ -15,10 +15,11 @@ const DatePickerTheme = {
   },
   textInput: {
     ...TextInputStyle,
+    color: JoyTheme.NAVY,
     'font-family': Font.DEFAULT,
     borderColor: JoyTheme.NAVY,
     boxSizing: 'border-box',
-    'text-align': 'center'
+    'padding-left': '52px'
   },
   dateTitle: { 'font-family': Font.DEFAULT, color: JoyTheme.NAVY },
   datePickerStyle: DatePickerStyle,
