@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import classnames from 'classnames'
-// style
-// import CheckedIcon from '../../../assets/icon/checked.svg'
 import CheckedIcon from './CheckedSvg'
 import { Colors } from '../../../Style/constants'
 import { Label2 } from '../../Typography/Typography'
@@ -14,11 +12,11 @@ const CheckboxContainer = styled.div`
 const IconWrapper = styled.i`
   height: 36px;
   cursor: pointer;
-  border: 1px solid ${props => props.theme.border ? props.theme.border : Colors.SILVER_SAND};
+  border: 1px solid ${props => props.theme.border || Colors.SILVER_SAND};
   border-radius: 10px;
   svg {
     #Shape {
-      fill: ${props => props.theme.checkColor ? props.theme.checkColor : 'white'};
+      fill: ${props => props.theme.checkColor || 'white'};
     }
   }
 
@@ -27,25 +25,25 @@ const IconWrapper = styled.i`
 
     svg{
       #Shape {
-        fill: ${props => props.theme.checkedColor ? props.theme.checkedColor : 'white'};
-        stroke: ${props => props.theme.checkedStroke ? props.theme.checkedStroke : ''};
+        fill: ${props => props.theme.checkedColor || 'white'};
+        stroke: ${props => props.theme.checkedStroke || ''};
       }
     
       #Rectangle {
-        fill: ${props => props.theme.checkedBackground ? props.theme.checkedBackground : Colors.FUN_BLUE};
+        fill: ${props => props.theme.checkedBackground || Colors.FUN_BLUE};
       }
     }
   }
   &.error {
-    border: 1px solid ${props => props.theme.error && props.theme.error.border ? props.theme.error.border : Colors.CINNABAR};
+    border: 1px solid ${props => props.theme.error && props.theme.error.border || Colors.CINNABAR};
     
     svg{
       #Shape {
-        fill: ${props => props.theme.error && props.theme.error.checkedColor ? props.theme.error.checkedColor : ''};
+        fill: ${props => props.theme.error && props.theme.error.checkedColor || ''};
       }
     
       #Rectangle {
-        fill: ${props => props.theme.error && props.theme.error.checkedBackground ? props.theme.error.checkedBackground : ''};
+        fill: ${props => props.theme.error && props.theme.error.checkedBackground || ''};
       }
     }
   }
@@ -53,44 +51,44 @@ const IconWrapper = styled.i`
 `
 
 const Icon = styled(CheckedIcon)`
-  border: 1px solid ${props => props.theme.border ? props.theme.border : Colors.SILVER_SAND};
+  border: 1px solid ${props => props.theme.border || Colors.SILVER_SAND};
   border-radius: 10px;
   #Shape {
-    fill: ${props => props.theme.checkColor ? props.theme.checkColor : 'white'};
+    fill: ${props => props.theme.checkColor || 'white'};
   }
 
   &.checked {
     border: none;
 
     #Shape {
-      fill: ${props => props.theme.checkedColor ? props.theme.checkedColor : 'white'};
-      stroke: ${props => props.theme.checkedStroke ? props.theme.checkedStroke : ''};
+      fill: ${props => props.theme.checkedColor || 'white'};
+      stroke: ${props => props.theme.checkedStroke || ''};
     }
 
     #Rectangle {
-      fill: ${props => props.theme.checkedBackground ? props.theme.checkedBackground : Colors.FUN_BLUE};
+      fill: ${props => props.theme.checkedBackground || Colors.FUN_BLUE};
     }
   }
   &.error {
-    border: 1px solid ${props => props.theme.error && props.theme.error.border ? props.theme.error.border : Colors.CINNABAR};
+    border: 1px solid ${props => props.theme.error && props.theme.error.border || Colors.CINNABAR};
   
     #Shape {
-      fill: ${props => props.theme.error && props.theme.error.checkedColor ? props.theme.error.checkedColor : ''};
+      fill: ${props => props.theme.error && props.theme.error.checkedColor || ''};
     }
   
     #Rectangle {
-      fill: ${props => props.theme.error && props.theme.error.checkedBackground ? props.theme.error.checkedBackground : ''};
+      fill: ${props => props.theme.error && props.theme.error.checkedBackground || ''};
     }
   }
 `
 
 const TitleComponent = styled(Label2)`
-  ${props => props.theme.labelStyle ? props.theme.labelStyle : ''};
-  color: ${props => props.theme.labelColor ? props.theme.labelColor : ''};
+  ${props => props.theme.labelStyle || ''};
+  color: ${props => props.theme.labelColor || ''};
   margin-left: 12px;
   line-height: 36px;
   &.error {
-    color: ${props => props.theme.error && props.theme.error.labelColor ? props.theme.error.labelColor : ''};
+    color: ${props => props.theme.error && props.theme.error.labelColor || ''};
   }
 `
 

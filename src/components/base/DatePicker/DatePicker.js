@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import InputStyle from '../../../Style/InputStyle'
 import CalendarIcon from './CalendarIconSvg'
 import ClearIcon from './ClearIconSvg'
-// import CalendarIcon from '../../../assets/icon/calendar.svg'
-// import ClearIcon from '../../../assets/icon/cross-black-circular-button.svg'
 import { buddhistYear, getMinDate, getMaxDate, getYear, getMonth, getDate, getNowDate, getTimestamp } from '../../../utils/time'
 import DatePickerStyle from '../../../Style/DatePickerStyle'
 import DatePickerHeader from './DatePickerHeader'
@@ -21,14 +19,14 @@ const DatePickerContainer = styled.div`
   position: absolute;
   z-index: 250;
   width: 100%;
-  ${props => props.theme && props.theme.datePickerStyle ? props.theme.datePickerStyle : DatePickerStyle}
+  ${props => props.theme && props.theme.datePickerStyle || DatePickerStyle}
 `
 
 const IconWrapper = styled.i`
   position: absolute;
   padding: 15px 25px;
   line-height: 14px;
-  ${props => props.theme && props.theme.iconStyle ? props.theme.iconStyle : ''}
+  ${props => props.theme && props.theme.iconStyle || ''}
 `
 
 const ClearIconWrapper = styled.i`
@@ -36,7 +34,7 @@ const ClearIconWrapper = styled.i`
   padding: 17px 20px;
   line-height: 16px;
   right: 1px;
-  ${props => props.theme && props.theme.clearIconStyle ? props.theme.clearIconStyle : ''};
+  ${props => props.theme && props.theme.clearIconStyle || ''};
 `
 
 const InputWrapper = styled.input`
@@ -44,7 +42,7 @@ const InputWrapper = styled.input`
   cursor: default;
   outline: none;
   caret-color: transparent;
-  ${props => props.theme && props.theme.textInput ? props.theme.textInput : InputStyle};
+  ${props => props.theme && props.theme.textInput || InputStyle};
 `
 
 export const getElementOffset = (el) => {

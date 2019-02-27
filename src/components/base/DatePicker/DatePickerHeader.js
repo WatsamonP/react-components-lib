@@ -23,7 +23,7 @@ const DropdownWrapper = styled.div`
 
 const DateTitle = styled(Label1)`
   font-size: 26px;
-  ${props => props.theme.dateTitle ? props.theme.dateTitle : ''};
+  ${props => props.theme.dateTitle || ''};
 `
 
 const ButtonWrapper = styled.button`
@@ -32,7 +32,7 @@ const ButtonWrapper = styled.button`
   font-size: 16px;
   margin-top: 6px;
   outline: none;
-  ${props => props.theme.buttonWrapper ? props.theme.buttonWrapper : ''};
+  ${props => props.theme.buttonWrapper || ''};
 `
 
 const DatePickerHeader = ({

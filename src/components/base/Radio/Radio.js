@@ -5,29 +5,28 @@ import classnames from 'classnames'
 import { Colors } from '../../../Style/constants'
 import Responsive from '../../../Style/Responsive'
 import { Label2 } from '../../Typography/Typography'
-// import RadioChecked from '../../../assets/icon/radio-checked.svg'
 import RadioChecked from './RadioIcon'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.ul`
   min-height: 56px;
   width: 100%;
-  background-color: ${props => props.theme.wrapperBackground ? props.theme.wrapperBackground : Colors.WHITE};
-  border: 1px solid ${props => props.theme.wrapperBorder ? props.theme.wrapperBorder : Colors.SILVER_SAND};
+  background-color: ${props => props.theme.wrapperBackground || Colors.WHITE};
+  border: 1px solid ${props => props.theme.wrapperBorder || Colors.SILVER_SAND};
   border-radius: 6px;
   display: flex;
   list-style: none;
   padding: 0;
 
   &.error {
-    border: 1px solid ${props => props.theme.error && props.theme.error.itemBorder ? props.theme.error.itemBorder : Colors.CINNABAR};
+    border: 1px solid ${props => props.theme.error && props.theme.error.itemBorder || Colors.CINNABAR};
     > li {
-      color: ${props => props.theme.error && props.theme.error.labelColor ? props.theme.error.labelColor : Colors.CINNABAR};
-      background-color: ${props => props.theme.error && props.theme.error.itemColor ? props.theme.error.itemColor : ''};
-      border-right: solid 1px ${props => props.theme.error && props.theme.error.itemBorder ? props.theme.error.itemBorder : Colors.CINNABAR};
+      color: ${props => props.theme.error && props.theme.error.labelColor || Colors.CINNABAR};
+      background-color: ${props => props.theme.error && props.theme.error.itemColor || ''};
+      border-right: solid 1px ${props => props.theme.error && props.theme.error.itemBorder || Colors.CINNABAR};
       svg {
         #symbols{
-          stroke: ${props => props.theme.error && props.theme.error.symbolStroke ? props.theme.error.symbolStroke : Colors.CINNABAR};
+          stroke: ${props => props.theme.error && props.theme.error.symbolStroke || Colors.CINNABAR};
         }
       }
       &:last-child {
@@ -42,23 +41,23 @@ const Wrapper = styled.ul`
     flex-direction: column;
     > li {
       min-height: 56px;
-      background-color: ${props => props.theme.wrapperBackground ? props.theme.wrapperBackground : Colors.WHITE};
-      border: 1px solid ${props => props.theme.wrapperBorder ? props.theme.wrapperBorder : Colors.SILVER_SAND};
+      background-color: ${props => props.theme.wrapperBackground || Colors.WHITE};
+      border: 1px solid ${props => props.theme.wrapperBorder || Colors.SILVER_SAND};
       border-radius: 6px;
       margin-bottom: 15px;
       box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
     }
     > li.active {
-      background-color: ${props => props.theme.active && props.theme.active.itemColor ? props.theme.active.itemColor : Colors.FUN_BLUE};
+      background-color: ${props => props.theme.active && props.theme.active.itemColor || Colors.FUN_BLUE};
     }
     &.error {
       border: none!important;
       > li {
-        border: solid 1px ${props => props.theme.error && props.theme.error.itemBorder ? props.theme.error.itemBorder : Colors.CINNABAR};
+        border: solid 1px ${props => props.theme.error && props.theme.error.itemBorder || Colors.CINNABAR};
       }
     }
   }
-  ${props => props.theme.wrapperStyle ? props.theme.wrapperStyle : ''};
+  ${props => props.theme.wrapperStyle || ''};
 `
 
 
@@ -69,9 +68,9 @@ const Item = styled.li`
   position: relative;
   align-items: center;
   cursor: pointer;
-  color: ${props => props.theme.labelColor ? props.theme.labelColor : ''};
-  background-color: ${props => props.theme.itemColor ? props.theme.itemColor : ''};
-  border-right: solid 1px ${props => props.theme.itemBorder ? props.theme.itemBorder : Colors.SILVER_SAND};
+  color: ${props => props.theme.labelColor || ''};
+  background-color: ${props => props.theme.itemColor || ''};
+  border-right: solid 1px ${props => props.theme.itemBorder || Colors.SILVER_SAND};
 
   &:first-child {
     border-top-left-radius: 6px;
@@ -91,13 +90,13 @@ const Item = styled.li`
       }
     }
     #symbols {
-      fill: ${props => props.theme.symbolColor ? props.theme.symbolColor : Colors.WHITE};
-      stroke: ${props => props.theme.symbolStroke ? props.theme.symbolStroke : ''};
+      fill: ${props => props.theme.symbolColor || Colors.WHITE};
+      stroke: ${props => props.theme.symbolStroke || ''};
     }
   }
   &.active {
-    background-color: ${props => props.theme.active && props.theme.active.itemColor ? props.theme.active.itemColor : Colors.FUN_BLUE};
-    color: ${props => props.theme.active && props.theme.active.labelColor ? props.theme.active.labelColor : Colors.WHITE};
+    background-color: ${props => props.theme.active && props.theme.active.itemColor || Colors.FUN_BLUE};
+    color: ${props => props.theme.active && props.theme.active.labelColor || Colors.WHITE};
     svg {
       #radio-checked {
         > path {
@@ -105,27 +104,27 @@ const Item = styled.li`
         }
       }
       #Shape {
-        fill: ${props => props.theme.active && props.theme.active.checkedColor ? props.theme.active.checkedColor : ''};
-        stroke: ${props => props.theme.active && props.theme.active.checkedStroke ? props.theme.active.checkedStroke : ''};
+        fill: ${props => props.theme.active && props.theme.active.checkedColor || ''};
+        stroke: ${props => props.theme.active && props.theme.active.checkedStroke || ''};
       }
       #symbols {
-        fill: ${props => props.theme.active && props.theme.active.symbolColor ? props.theme.active.symbolColor : ''};
-        stroke: ${props => props.theme.active && props.theme.active.symbolStroke ? props.theme.active.symbolStroke : Colors.SILVER_SAND};
+        fill: ${props => props.theme.active && props.theme.active.symbolColor || ''};
+        stroke: ${props => props.theme.active && props.theme.active.symbolStroke || Colors.SILVER_SAND};
       }
     }
   }
   &.disabled {
-    border: solid 1px ${props => props.theme.disabled && props.theme.disabled.itemBorder ? props.theme.disabled.itemBorder : ''};
+    border: solid 1px ${props => props.theme.disabled && props.theme.disabled.itemBorder || ''};
     > li {
-      border-right: solid 1px ${props => props.theme.disabled && props.theme.disabled.itemBorder ? props.theme.disabled.itemBorder : ''};
+      border-right: solid 1px ${props => props.theme.disabled && props.theme.disabled.itemBorder || ''};
     }
     svg {
       #symbols {
-        stroke: ${props => props.theme.disabled && props.theme.disabled.symbolStroke ? props.theme.disabled.symbolStroke : ''};
+        stroke: ${props => props.theme.disabled && props.theme.disabled.symbolStroke || ''};
       }
     }
-    background-color: ${props => props.theme.disabled && props.theme.disabled.itemColor ? props.theme.disabled.itemColor : ''};
-    color: ${props => props.theme.disabled && props.theme.disabled.labelColor ? props.theme.disabled.labelColor : Colors.HIT_GRAY};
+    background-color: ${props => props.theme.disabled && props.theme.disabled.itemColor || ''};
+    color: ${props => props.theme.disabled && props.theme.disabled.labelColor || Colors.HIT_GRAY};
   }
 `
 
@@ -133,7 +132,7 @@ const Label = styled(Label2)`
   line-height: 25px;
   margin: 10px 30px 10px 75px;
   border: none !important;
-  ${props => props.theme.labelStyle ? props.theme.labelStyle : ''};
+  ${props => props.theme.labelStyle || ''};
 `
 
 export const RadioComponent = ({
