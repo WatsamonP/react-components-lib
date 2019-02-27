@@ -4,6 +4,7 @@ import { JoyTheme } from '../Style/JoyTheme';
 
 export const Form = styled.div`
   ${Responsive('div')};
+  ${Responsive('p')};
   display: flex;
   flex-wrap: wrap;
   > * {
