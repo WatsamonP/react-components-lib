@@ -22,12 +22,11 @@ import { Form, ItemWrapper } from '../../../components/Layout'
 import RadioTheme from '../config/theme/RadioTheme'
 import CheckboxTheme from '../config/theme/CheckboxTheme'
 import DatePickerTheme from '../config/theme/DatePickerTheme'
-
+import { SearchIcon, ClearIcon } from '../../../components/Icon'
 const CheckboxWithLabel = styled.div`
   ${withLabelStyle}; 
 `
-const SearchIcon = (<i className="fa fa-search" aria-hidden="true"></i>)
-const ClearIcon = (<i className="fa fa-times-circle" aria-hidden="true"></i>)
+
 
 const SelectComponents = (
   { field = {}, i18n,
@@ -67,7 +66,7 @@ const SelectComponents = (
           mask={field.mask} // handle Mask
           maskChar={field.maskChar}
           regex={field.regex || null}
-          className={`${classnames({ error: field.error })}`} // styling
+          className={classnames({ error: field.error })} // styling
         />
       )
     case 'Dropdown':
@@ -157,7 +156,7 @@ const SelectComponents = (
           {...initField}
           value={R.defaultTo("", field.value)}
           onChange={handleTextInput}
-          className={`${classnames({ error: field.error })}`}
+          className={classnames({ error: field.error })}
         />
       )
     default:

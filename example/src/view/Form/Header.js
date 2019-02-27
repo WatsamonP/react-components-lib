@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SwitchLang from './SwitchLang'
 import { Left, Right } from './Footer'
 import { JoyTheme } from '../../Style/JoyTheme'
+import { Bars } from '../../components/Icon'
 
 const HeaderWrapper = styled.div`
   z-index: 98;
@@ -33,7 +34,7 @@ const Header = ({ handleClickToggle, isOpen }) => {
     <HeaderWrapper>
       <Left>
         <Toggle onClick={handleClickToggle} isOpen={isOpen}>
-          <i className="fa fa-bars" aria-hidden="true"></i>
+          {Bars}
         </Toggle>
       </Left>
       <Right>

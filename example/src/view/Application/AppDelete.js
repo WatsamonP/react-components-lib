@@ -8,7 +8,7 @@ import { Background } from '../../components/Alert'
 import { JoyTheme } from '../../Style/JoyTheme'
 import { ButtonComponent } from 'react-components-lib'
 import ButtonStyle from '../../Style/ButtonStyle'
-import { Trash } from './List'
+import { Trash } from '../../components/Icon'
 
 const Container = styled.div`
   z-index: 300; /* Sit on top */
@@ -85,14 +85,11 @@ class AlertDelete extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { data } = state;
-  return { data: data }
-}
+const mapStateToProps = ({ data }) => ({ data })
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteApp: (appId) => { dispatch(deleteApp(appId)) },
+    deleteApp: (appId) => dispatch(deleteApp(appId)),
   }
 }
 

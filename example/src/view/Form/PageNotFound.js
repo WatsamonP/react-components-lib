@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { Redirect } from 'react-router-dom';
 import { JoyTheme } from '../../Style/JoyTheme'
 import { translate } from 'react-i18next';
-
-const Wraning = <i className="fa fa-exclamation-triangle" style={{ color: JoyTheme.GREY, fontSize: '150px' }} aria-hidden="true"></i>
+import { Wraning404 } from '../../components/Icon'
 
 const Wrapper = styled.div`
   padding-top: 50px;
@@ -40,7 +39,7 @@ class PageNotFound extends React.Component {
     return (
       <Wrapper>
         {this.state.dots === '....' && <Redirect to={'/appList'} />}
-        {Wraning}<br />
+        {Wraning404}<br />
         <Text>{i18n.t("oops-error")}</Text>
         <Text color={JoyTheme.NAVY}>{i18n.t("page-not-found")}</Text>
         <Text font="25px">{i18n.t("loading-to-list")} {this.state.dots}</Text>

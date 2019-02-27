@@ -18,8 +18,7 @@ import { getGenderIcon } from './List'
 import { JoyTheme } from '../../Style/JoyTheme';
 import { SubmitBtn } from '../../components/Button'
 import Loading from '../../components/Loading'
-const checkCircle = <i className="fa fa-check-circle" aria-hidden="true"></i>
-
+import { checkCircle } from '../../components/Icon'
 
 class AppEdit extends React.Component {
 
@@ -90,14 +89,11 @@ class AppEdit extends React.Component {
 
   handleCheckbox = (key) => (item, isChecked) => {
     const { options } = this.state[key];
-    const PropsValue = this.props.data[key];
-    const PropsList = this.props.data[`${key}Detail`];
-    let list = [], value = {};
-    if (PropsValue) { value = PropsValue.value }
-    if (PropsList) { list = PropsList.value.list }
+    const { value = {} } = _.defaultTo(this.props.data[key], {})
+    const { value: { list = [] } } = _.defaultTo(this.props.data[`${key}Detail`], { value: {} })
 
-    let checkKey = isChecked ? true : false;
-    let isAlready = this.getLabel(list, item.code) ? true : false;
+    const checkKey = isChecked ? true : false;
+    const isAlready = this.getLabel(list, item.code) ? true : false;
 
     this.props.setValue(this.props.appId, key, { ...value, [item.code]: checkKey, none: false })
 
@@ -112,7 +108,6 @@ class AppEdit extends React.Component {
   }
 
   handleDatePicker = key => res => {
-    console.log(res)
     this.setState({ [key]: { ...this.state[key], value: res } })
     this.props.setValue(this.props.appId, key, res)
   }
@@ -120,18 +115,22 @@ class AppEdit extends React.Component {
   /************************************************************************* */
 
   handleOnSubmit = () => {
-    this.setState({ status: { isOpen: !this.state.status.isOpen } })
+    this.setState(prevState => ({
+      status: { isOpen: !prevState.status.isOpen }
+    }))
   }
 
   handleAlertSubmit = () => {
-    this.setState({ status: { isConfirmAlert: !this.state.status.isConfirmAlert } })
+    this.setState(prevState => ({
+      status: { isConfirmAlert: !prevState.status.isConfirmAlert }
+    }))
   }
 
   /************************************************************************* */
   renderField = (fields) => {
     const { data } = this.props;
 
-    return Object.keys(fields).map((key, index) => {
+    return Object.keys(fields).map(key => {
       let newValue = !R.isNil(data[key]) ? data[key].value : fields[key].value;
       let isHidden = false;
       if (fields[key].hidden === true) {
@@ -140,11 +139,10 @@ class AppEdit extends React.Component {
       const field = { ...fields[key], fieldId: key, value: newValue, hidden: isHidden }
 
       return (
-        <div key={`key-${key}-${index}`} className={field.className}>
+        <div key={`key-${key}`} className={field.className}>
           <ItemWrapper>
             <SelectComponents
               field={field}
-              // handleFunction
               handleTextInput={this.handleTextInput(key)}
               handlePopupSearch={this.handlePopupSearch(key)}
               handleDropdown={this.handleDropdown(key)}
@@ -161,10 +159,7 @@ class AppEdit extends React.Component {
 
   render() {
     const { match, data, i18n } = this.props;
-
-    if(!data){
-      return <Redirect from="*" to="/404" />
-    }
+    if (!data) { return <Redirect from="*" to="/404" /> }
 
     const {
       firstName, lastName, birthDate, address,
@@ -194,11 +189,11 @@ class AppEdit extends React.Component {
         }
 
         <Title>
-          <div className="left">{i18n.t('app-id')} : {match.params.id}</div>
-          <div className="right" style={{ fontSize: '25px' }}>{getGenderIcon(data.gender.value)}</div>
+          <h1 className="left">{i18n.t('app-id')} : {match.params.id}</h1>
+          <h1 className="right" style={{ fontSize: '25px' }}>{getGenderIcon(data.gender.value)}</h1>
         </Title>
 
-        <Container style={{ paddingBottom: '30px' }}>
+        <Container style={{ paddingBottom: '70px' }}>
           <Form>{this.renderField(Group1)}</Form>
           <Line />
           <Form>{this.renderField(Group2)}</Form>
@@ -217,7 +212,7 @@ class AppEdit extends React.Component {
               disabled={this.state.status.isDisabled} />}
           rightStyle={{ paddingTop: '6px', paddingRight: '5px' }}
         />
-      </div >
+      </div>
     )
   }
 }

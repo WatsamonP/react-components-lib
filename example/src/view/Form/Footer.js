@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: ${props => props.color ? props.color : JoyTheme.CREAM};  
+  background-color: ${props => props.color || JoyTheme.CREAM};  
 `
 
 export const Left = styled.div`
@@ -17,7 +17,7 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   float:right;
-  ${props => props.styleConfig ? props.styleConfig : ''};
+  ${props => props.styleConfig || ''};
 `
 
 export const Footer = ({ left, right, rightStyle, color }) => {

@@ -14,8 +14,7 @@ import Alert from '../../components/Alert'
 import { NavyBtn, NavyOutlineBtn } from '../../components/Button'
 import { Form, ItemWrapper } from '../../components/Layout'
 
-const FloppyIcon = (<i className="fa fa-floppy-o" aria-hidden="true"></i>)
-const ClearIcon = (<i className="fa fa-trash" aria-hidden="true"></i>)
+import { FloppyIcon, ClearIcon } from '../../components/Icon'
 
 
 class AppCreate extends React.Component {
@@ -35,10 +34,10 @@ class AppCreate extends React.Component {
   }
 
   handleTextInput = key => e => {
-    let value = e.target.value;
-    let isError = this.state[key].required ? R.isEmpty(value) ? true : false : false;
+    const { value } = e.target;
+    const isError = this.state[key].required ? R.isEmpty(value) ? true : false : false;
     this.setState({
-      [key]: { ...this.state[key], value: value, error: isError },
+      [key]: { ...this.state[key], value, error: isError },
       status: isError
     })
   }
@@ -61,9 +60,9 @@ class AppCreate extends React.Component {
     })
 
     if (!R.includes(true, isError)) {
-      this.setState({
-        status: { ...this.state.status, isDisabled: false, isOpen: !this.state.isOpen }
-      })
+      this.setState(prevState => ({
+        status: { ...prevState.status, isDisabled: false, isOpen: !prevState.isOpen }
+      }))
     } else {
       this.setState({ status: { isDisabled: true } })
     }
@@ -86,8 +85,8 @@ class AppCreate extends React.Component {
       lastName: { value: lastName.value }
     }
 
-    let formValue = { ...newState, date: new Date().getTime() };
-    const appId = `${new Date().getTime()}`;
+    let formValue = { ...newState, date: Date.now() };
+    const appId = `${Date.now()}`;
     this.props.createApp(appId, formValue)
   }
 
@@ -95,14 +94,12 @@ class AppCreate extends React.Component {
 
   renderField = () => {
     const newState = _.omit(this.state, ['status']);
-    return Object.keys(newState).map((key, index) => {
+    return Object.keys(newState).map(key => {
       return (
-        <div key={`key-${key}-${index}`} className={this.state[key].className}>
+        <div key={`create-key-${key}`} className={this.state[key].className}>
           <ItemWrapper>
             <SelectComponents
-              key={`key-${key}-${index}`}
               field={this.state[key]}
-              // handleFunction
               handleTextInput={this.handleTextInput(key)}
               handleRadio={this.handleRadio(key)}
             />
@@ -132,14 +129,11 @@ class AppCreate extends React.Component {
           />
         }
 
-        <Title><div className="left">{i18n.t('create-app')}</div></Title>
-
+        <Title><h1 className="left">{i18n.t('create-app')}</h1></Title>
         <Container>
-
           <Form>
             {this.renderField()}
           </Form>
-
           <div style={{ paddingTop: '60px', float: 'right' }}>
             <NavyOutlineBtn
               onClick={this.handleClear} label={i18n.t('clear')}
@@ -147,7 +141,6 @@ class AppCreate extends React.Component {
             />
           </div>
         </Container>
-
         <Footer
           right={
             <NavyBtn
@@ -156,7 +149,6 @@ class AppCreate extends React.Component {
               disabled={this.state.status.isDisabled} />
           }
           rightStyle={{ paddingTop: '6px', paddingRight: '5px' }}
-
         />
       </div>
     )

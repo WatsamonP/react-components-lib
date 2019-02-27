@@ -22,12 +22,12 @@ class AppList extends React.Component {
     return (
       <div>
         <Title>
-          <div className="left">{i18n.t('app')}</div>
-          <div className="right">
+          <h1 className="left">{i18n.t('app')}</h1>
+          <h1 className="right">
             <Link to='/AppCreate' style={{ textDecoration: 'none', color: JoyTheme.WHITE }}>
               <CreateBtn label={i18n.t('create-app')} />
             </Link>
-          </div>
+          </h1>
         </Title>
         <List list={data} />
       </div>

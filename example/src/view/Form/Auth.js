@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 import styled from 'styled-components'
+import { translate } from 'react-i18next';
 
 import MenuStyle from './Styles/Menu'
 import { JoyTheme } from '../../Style/JoyTheme'
-
-const FaSignOut = <i className="fa fa-sign-out" aria-hidden="true"></i>
-const FaUser = <i className="fa fa-user" aria-hidden="true"></i>
+import { FaSignOut, FaUser } from '../../components/Icon'
 const AuthButton = styled.div`
   ${MenuStyle}
   background-color: ${JoyTheme.NAVY};
@@ -18,16 +17,16 @@ const AuthButton = styled.div`
 class Auth extends React.Component {
 
   handleClick = () => {
-    this.props.isSignedIn ? this.props.signOut() : this.props.signIn('Joy, Watsamon');
+    this.props.isSignedIn ? this.props.signOut() : this.props.signIn('JoyWatsamon');
   }
 
   render() {
-    const { isSignedIn, userId } = this.props;
+    const { isSignedIn, userId, i18n } = this.props;
     return (
       <React.Fragment>
         <AuthButton onClick={this.handleClick}>
           {FaUser}
-          {isSignedIn ? ` ${userId}  ` : ' SIGN IN'}
+          {isSignedIn ? ` ${userId}  ` : ` ${i18n.t('sign-in')}`}
           {isSignedIn ? FaSignOut : ''}
         </AuthButton>
       </React.Fragment>
@@ -48,4 +47,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(translate()(Auth));
