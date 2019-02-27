@@ -13,7 +13,7 @@
 
 ### Prop Types of Component
 
-view Summary Prop types Table, how to config styled on `:heavy_exclamation_mark: Summary`. For each Component see Prop types on _their_ [_stories_](https://sad-hawking-0f7d4e.netlify.com)
+view Summary Prop types Table, how to config styled on `❗ Summary`. For each Component see Prop types on _their_ [_stories_](https://sad-hawking-0f7d4e.netlify.com)
 
 <hr>
 
