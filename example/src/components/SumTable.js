@@ -6,23 +6,26 @@ import moment from 'moment'
 import { translate } from 'react-i18next';
 import Responsive from '../Style/Responsive'
 import { JoyTheme } from '../Style/JoyTheme'
-import { GenderToText } from './CreateTable'
+import { getGenderIcon } from '../view/Application/List'
 
 // icon
-const UserIcon = <i className="fa fa-user" aria-hidden="true"></i>
-const Calendar = <i className="fa fa-calendar-o" aria-hidden="true"></i>
-const MapMarker = <i className="fa fa-map-marker" aria-hidden="true"></i>
-const Medkit = <i className="fa fa-medkit" aria-hidden="true"></i>
-const FileText = <i className="fa fa-file-text" aria-hidden="true"></i>
-const StickyNote = <i className="fa fa-sticky-note-o" aria-hidden="true"></i>
-const BalanceScale = <i className="fa fa-balance-scale" aria-hidden="true"></i>
-const Smile = <i className="fa fa-smile-o" aria-hidden="true"></i>
+import {
+  UserIcon,
+  Calendar,
+  MapMarker,
+  Medkit,
+  FileText,
+  StickyNote,
+  BalanceScale,
+  Smile
+} from '../components/Icon'
 
 const Form = styled.div`
   ${Responsive('div')};
   display: flex;
   flex-wrap: wrap;
-  padding-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 `
 const Label = styled.div`
   font-size: 18px;
@@ -34,6 +37,12 @@ const DisplayValue = styled.div`
   font-size: 18px;
   margin-left: 20px;
 `
+
+export const GenderToText = (code, i18n) => {
+  return code === 'M' ?
+    <React.Fragment>{i18n.t('Male')} {getGenderIcon(code)}</React.Fragment>
+    : <React.Fragment>{i18n.t('Female')} {getGenderIcon(code)}</React.Fragment>
+}
 
 const renderLi = (objectValue, objectList, lang, i18n) => {
   if (!objectList) { return "-" }
@@ -53,7 +62,7 @@ const renderLi = (objectValue, objectList, lang, i18n) => {
   let FinalList = _.filter(list, res => trulyList.includes(res.code));
   return (
     <div>
-      {FinalList.map((item, i) => <li key={`key-summary-table-li-${item.code}`}>{objectToLabel(item, lang)}</li>)}
+      {FinalList.map(item => <li key={`key-summary-table-li-${item.code}`}>{objectToLabel(item, lang)}</li>)}
     </div>
   )
 }
@@ -63,21 +72,21 @@ const objectToLabel = (value, lang) => {
   return R.path([lang, 'label'], value.translations);
 }
 
-export const SelectAction = (value, lang) => {
+export const SelectAction = (value, lang, i18n) => {
   switch (typeof (value)) {
     case 'string':
       return value
     case 'object':
       switch (typeof (value.value)) {
         case 'number':
-          return Moment(value.value)
+          return Moment(value.value, lang)
         case 'object':
           return objectToLabel(value.value, lang)
         case 'string':
           switch (value.value) {
             case "M":
             case "F":
-              return GenderToText(value.value)
+              return GenderToText(value.value, i18n)
             default:
               return value.value
           }
@@ -110,8 +119,10 @@ const RenderList = ({ icon, label, value, list, lang, optionalDisplay, specialDi
 }
 
 const Moment = (time, lang = 'th') => {
-  let newTime = moment(time).format('D MMMM YYYY');
-  return newTime;
+  moment.locale(lang)
+  const newTime = moment(time).format('D MMMM');
+  const year = lang === 'th' ? Number(moment(time).format('YYYY')) + 543 : moment(time).format('YYYY')
+  return `${newTime} ${year}`;
 }
 
 const SummaryTable = ({ list = [], i18n }) => {
@@ -125,12 +136,13 @@ const SummaryTable = ({ list = [], i18n }) => {
 
 
   const displayWeightQuestion = () => {
-    if (R.isEmpty(weightQuestion)) { return null }
-
-    return weightQuestion.value.code === 'S' ? '' : ` ${weightQuestionDetail.value} ${i18n.t('kg')}`
+    if (_.isEmpty(weightQuestion)) { return null }
+    return weightQuestion.value.code === 'S' ? ''
+      : _.isEmpty(weightQuestionDetail.value) ? ''
+        : ` ${weightQuestionDetail.value} ${i18n.t('kg')}`
   }
   const displayIden = () => {
-    if (R.isNil(identityNo)) { return null }
+    if (_.isNil(identityNo)) { return null }
     return (
       <React.Fragment>
         <div style={{ display: 'block' }}>
@@ -151,7 +163,8 @@ const SummaryTable = ({ list = [], i18n }) => {
       <RenderList
         icon={Calendar}
         label={i18n.t('birthdate')}
-        value={birthDate} />
+        value={birthDate}
+        lang={CurrentLanguage} />
       <RenderList
         icon={MapMarker}
         label={i18n.t('address')}

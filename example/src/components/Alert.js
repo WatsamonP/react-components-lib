@@ -26,65 +26,58 @@ const Card = styled.div`
   bottom: 20%;
   margin: auto;
   box-shadow: 0px 0px 10px 0px #474444;
-  overflow-y: auto;
-  .header {
-    font-size: 28px;
-  }
+  overflow-y: hidden;
   ${props => props.config};
 `
 
-const DisplayBtn = styled.div`
-  position: absolute;
-  right: 0;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  padding-top: 20px;
+const DisplayBtn = styled.span`
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const renderCreateTable = (value, onSubmit, i18n) => {
   return (
-    <div>
+    <React.Fragment>
       <CreateTable list={value} />
-      <div className="footer">
+      <div className="line" />
+      <DisplayBtn>
         <SubmitBtn label={i18n.t('submit')} onClick={onSubmit} />
-      </div>
-    </div>
+      </DisplayBtn>
+    </React.Fragment>
   )
 }
 
 const renderSummaryTable = (value, onSubmit, i18n) => {
   return (
-    <div>
+    <React.Fragment>
       <SummaryTable list={value} />
-      <DisplayBtn >
+      <div className="line" />
+      <DisplayBtn>
         <SubmitBtn label={i18n.t('submit')} onClick={onSubmit} />
       </DisplayBtn>
-    </div>
+    </React.Fragment>
   )
 }
 
-const justAlert = (value) => {
-
-}
 
 const Alert = ({ title, value, optional, onClose, open, onSubmit = () => null, action = 'alert', i18n }) => {
-  const MiniCard = { top: '25%', bottom: '25%', left: '30%', right: '30%' }
-  const renderAlert = action === 'alert' ?
-    justAlert(value)
-    : action === 'create' ?
-      renderCreateTable(value, onSubmit, i18n)
-      : renderSummaryTable(value, onSubmit, i18n);
+  const MiniCard = { top: '25%', bottom: '20%', left: '30%', right: '30%' }
+  const renderAlert = action === 'create' ?
+    renderCreateTable(value, onSubmit, i18n)
+    : renderSummaryTable(value, onSubmit, i18n);
 
   return (open ? (
     <div>
       <Background onClick={() => onClose()} />
       <Card config={action === 'create' && MiniCard}>
-        <div className="header">
+        <h2 className="header">
           {title}
           <div className="closeBtn" onClick={() => onClose()}>x</div>
-        </div>
+        </h2>
         <div className="optional">{optional}</div>
-        <div className="line"></div>
+        <div className="line" />
         <div className="container">
           {renderAlert}
         </div>
