@@ -1,12 +1,6 @@
 # react-components-lib
 
-## Install
-
-```bash
-yarn add ...
-```
-
-## Components
+### Components
 - ButtonComponent
 - CheckboxComponent
 - DatePickerComponent
@@ -18,12 +12,8 @@ yarn add ...
 - withLabel
 
 ### Prop Types of Component
-for each Component you can see Prop types on [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://sad-hawking-0f7d4e.netlify.com)
 
-<details>
-<summary>Components Props</summary>
-  TODO
-</details>
+view Summary Prop types Table on `:heavy_exclamation_mark: Summary` and for each Component you can see Prop types on _their_ [_stories_](https://sad-hawking-0f7d4e.netlify.com)
 
 <hr>
 

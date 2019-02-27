@@ -43,7 +43,6 @@
 | **error** | _bool_ |  | _false_ |
 | **requiredMessage** | _string_ |  | 'bottomLabel.error.requiredMessage' | display when required && error, (empty value) |
 | **errorMessage** | _string_ |  | 'bottomLabel.error.errorMessage' | display when required && error, value is not empty |
-| **componentStyle** | object | `STYLED` Component | - |  |
 | **wrapperStyle** | object | `STYLED` Wrapper Component (Label and Bottom Label) | - |
 
 
