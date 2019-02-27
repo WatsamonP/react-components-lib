@@ -4,9 +4,6 @@ import { fieldCreate } from './createApp'
 import { NUMBER_AND_DOT_ONLY } from '../../../../utils/regex'
 import { WeightOptions } from './otherOptions'
 
-// style
-import RadioThemeMini from '../../config/theme/RadioThemeMini'
-
 const mapDistrict = () => {
   return master.zipDistrict.map(data => {
 
@@ -84,8 +81,7 @@ export const fieldEdit = {
     action: 'Radio',
     className: 'tablet-9 phone-9',
     label: 'weight-question',
-    options: WeightOptions,
-    theme: RadioThemeMini
+    options: WeightOptions
   },
   weightQuestionDetail: {
     action: 'TextInput',
