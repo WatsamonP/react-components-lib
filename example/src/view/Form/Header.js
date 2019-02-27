@@ -27,6 +27,7 @@ const Toggle = styled.button`
   outline:none;
   color: ${JoyTheme.WHITE};
   font-size:30px;
+  padding-left: 15px;
 `
 
 const Header = ({ handleClickToggle, isOpen }) => {

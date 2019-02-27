@@ -6,7 +6,10 @@ import history from './history'
 import Form from './view/Form'
 
 const GlobalStyle = createGlobalStyle`
-  * { font-family: ${Font.DEFAULT}; }
+  * { font-family: ${Font.DEFAULT}; 
+  margin:0;
+  padding: 0;
+}
 `
 
 class App extends React.Component {

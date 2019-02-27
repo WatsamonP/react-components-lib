@@ -6,11 +6,10 @@ import { translate } from 'react-i18next';
 
 import { ButtonComponent } from 'react-components-lib'
 import { JoyTheme } from '../../Style/JoyTheme'
-import TitleStyle from '../../Style/Wrapper/Title'
+import { Title } from '../../components/Wrapper'
 import ButtonStyle from '../../Style/ButtonStyle'
 import List from './List'
 
-const Title = styled.div`${TitleStyle}`
 const CreateBtn = styled(ButtonComponent)`
   ${ButtonStyle}
 `

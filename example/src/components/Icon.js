@@ -10,7 +10,7 @@ export const StickyNote = <i className="fa fa-sticky-note-o" aria-hidden="true">
 export const BalanceScale = <i className="fa fa-balance-scale" aria-hidden="true"></i>
 export const Smile = <i className="fa fa-smile-o" aria-hidden="true"></i>
 export const FloppyIcon = <i className="fa fa-floppy-o" aria-hidden="true"></i>
-export const ClearIcon = <i className="fa fa-trash" aria-hidden="true"></i>
+export const ClearIcon = <i className="fa fa-times-circle" aria-hidden="true"></i>
 export const checkCircle = <i className="fa fa-check-circle" aria-hidden="true"></i>
 export const SearchIcon = (<i className="fa fa-search" aria-hidden="true"></i>)
 export const Pencil = <i className="fa fa-pencil" aria-hidden="true"></i>

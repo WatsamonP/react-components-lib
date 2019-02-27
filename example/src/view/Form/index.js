@@ -20,21 +20,16 @@ const Menu = styled(NavLink)`
   ${MenuStyle};
 `
 const Container = styled.div`
-  margin-left: ${props => props.isOpen ? `0px` : '200px'};
-  transition: 0.5s;
-  position: fixed;
-  height: 100%;
-  width: 100%;
   overflow-y: hidden;
-  left:0px;
 `
 
 const Main = styled.div`
-  top: 40px;
   position: relative;
-  height: 100%;
-  width: 100%;
+  transition: 0.5s;
+  top: 50px;
+  height: calc(100vh - 20px);
   overflow-y: auto;
+  margin-left: ${props => props.isOpen ? `0px` : '200px'};
 `
 
 class Form extends React.Component {
@@ -62,8 +57,8 @@ class Form extends React.Component {
         </MySidenav>
 
         <Header handleClickToggle={this.handleClick} isOpen={isOpen} />
-        <Container isOpen={isOpen}>
-          <Main>
+        <Container>
+          <Main isOpen={isOpen}>
             <Switch>
               <Redirect exact strict from="/" to="/appList" />
               {
