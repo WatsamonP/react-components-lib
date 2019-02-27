@@ -38,5 +38,8 @@
   "oops-error": "Oops! Error",
   "page-not-found": "Page not found",
   "back-to-list": "Back to list",
-  "loading-to-list": "Loading to List"
+  "loading-to-list": "Loading to List",
+  "Male": "Male",
+  "Female": "Female",
+  "sign-in": "SIGN IN"
 }
