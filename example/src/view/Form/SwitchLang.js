@@ -7,8 +7,7 @@ class SwitchLang extends React.Component {
 
   handleChangeLang = () => {
     const { i18n } = this.props;
-    const lang = i18n.language;
-    lang === 'th' ? i18n.changeLanguage("en") : i18n.changeLanguage("th");
+    i18n.language === 'th' ? i18n.changeLanguage("en") : i18n.changeLanguage("th");
   }
 
   render() {
