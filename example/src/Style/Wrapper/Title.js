@@ -2,16 +2,15 @@ import { css } from 'styled-components';
 import { JoyTheme } from '../../Style/JoyTheme'
 
 export default css`
-  margin: 20px;
+  margin: 5px 20px 0px 20px;
   display: flex;
   justify-content: space-between;
 
-  .left{
-    font-size:30px;
-    font-weight:bold;
+  .left {
     color: ${JoyTheme.NAVY};
   }
   
-  .right{
+  .right {
+    top: 50px;
   }
 `
