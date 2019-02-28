@@ -23,7 +23,7 @@ class AppList extends React.Component {
         <Title>
           <h1 className="left">{i18n.t('app')}</h1>
           <h1 className="right">
-            <Link to='/AppCreate' style={{ textDecoration: 'none', color: JoyTheme.WHITE }}>
+            <Link to='/appCreate' style={{ textDecoration: 'none', color: JoyTheme.WHITE }}>
               <CreateBtn label={i18n.t('create-app')} />
             </Link>
           </h1>
@@ -34,13 +34,7 @@ class AppList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { data } = state;
-
-  return {
-    data: { ...data },
-  }
-}
+const mapStateToProps = ({ data }) => ({ data })
 
 export default connect(mapStateToProps, null)(translate()(AppList));
 

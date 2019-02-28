@@ -99,7 +99,7 @@ class List extends React.Component {
                 </Text>
                 <Btn className="tablet-4 phone-4">
                   <div style={{ paddingRight: '10px' }}>
-                    <Link to={`/AppEdit/${key}`} style={{ textDecoration: 'none', marginRight: '10px' }}>
+                    <Link to={`/appEdit/${key}`} style={{ textDecoration: 'none', marginRight: '10px' }}>
                       <Button label={i18n.t('edit')}
                         background={JoyTheme.LIGHT_NAVY}
                         leftIcon={Pencil} leftIconStyle={{ paddingRight: '10px' }}
