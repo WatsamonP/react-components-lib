@@ -157,7 +157,7 @@ class AppCreate extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createApp: (appId, formValue) => { dispatch(createApp(appId, formValue)) },
+    createApp: (appId, formValue) => dispatch(createApp(appId, formValue)),
   }
 }
 

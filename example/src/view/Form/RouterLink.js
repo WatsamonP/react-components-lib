@@ -8,6 +8,6 @@ import { FaPlusCir, FaList } from '../../components/Icon'
 export default [
   { path: '/appList', component: AppList, title: "list", icon: FaList, display: true },
   { path: '/appCreate', component: AppCreate, title: "create-app", icon: FaPlusCir, display: true },
-  { path: '/appEdit/:id', component: AppEdit, title: "Edit App", display: false },
-  { path: '/404', component: PageNotFound, title: "Edit App", display: false }
+  { path: '/appEdit/:id', component: AppEdit, title: "EditApp", display: false },
+  { path: '/404', component: PageNotFound, title: "NotFound", display: false }
 ]

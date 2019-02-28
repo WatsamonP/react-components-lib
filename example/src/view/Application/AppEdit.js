@@ -223,8 +223,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setValue: (appId, fieldId, value) => { dispatch(setValue(appId, fieldId, value)) },
-    removeValue: (appId, fieldId) => { dispatch(removeValue(appId, fieldId)) },
+    setValue: (appId, fieldId, value) => dispatch(setValue(appId, fieldId, value)),
+    removeValue: (appId, fieldId) => dispatch(removeValue(appId, fieldId)),
   }
 }
 
