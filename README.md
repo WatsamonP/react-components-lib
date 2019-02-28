@@ -56,15 +56,24 @@ class Example extends React.Component {
 
 ## Storybook
 
+Start 
 ```bash
 yarn storybook
 ```
-
 or
 
 > [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://sad-hawking-0f7d4e.netlify.com)
 
-#### Addons
+<hr>
+
+Build storybook
+```bash
+yarn build-storybook
+```
+
+
+
+#### Storybook Addons
 
 | Panel name | |
 | :---: | :--- |
