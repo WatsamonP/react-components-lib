@@ -75,7 +75,7 @@ export default css`
     position: absolute;
     cursor: pointer;
     left: auto;
-    right: 4px;
+    right: 12px;
     z-index: 10;
     font-size: 20px;
     color: ${JoyTheme.GREY};
