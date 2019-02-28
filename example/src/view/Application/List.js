@@ -36,6 +36,7 @@ const ListItem = styled.div`
 `
 const Text = styled.p`
   display: inline-block;
+  padding-top: 10px;
 `
 const Btn = styled.div`
   display: inline-block;
